@@ -1,0 +1,40 @@
+﻿<Window x:Class="Accounts.Windows.TransactionsDuplicationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Accounts.Windows"
+        xmlns:p="clr-namespace:Accounts.Properties"
+        mc:Ignorable="d"
+        Title="{x:Static p:Resources.Transactions_Duplicate_Dialog_Title}"
+        Height="250" Width="500" WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize" Background="White" Icon="../Images/Icon.ico">
+    <!-- Command bindings -->
+    <Window.CommandBindings>
+        <CommandBinding Command="local:TransactionsDuplicationWindowCommands.Submit"
+                        CanExecute="SubmitCommand_OnCanExecute" Executed="SubmitCommand_OnExecuted" />
+        <CommandBinding Command="local:TransactionsDuplicationWindowCommands.Cancel"
+                        CanExecute="CancelCommand_OnCanExecute" Executed="CancelCommand_OnExecuted" />
+    </Window.CommandBindings>
+    <!-- Content -->
+    <DockPanel>
+        <!-- Buttons -->
+        <Grid DockPanel.Dock="Bottom" Background="#f0f0f0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="16">
+                <Button Margin="0, 0, 4, 0" FontSize="14" Height="28" Width="90"
+                        Content="{x:Static p:Resources.Transactions_Duplicate_Dialog_Submit}"
+                        Command="local:TransactionsDuplicationWindowCommands.Submit" />
+                <Button Margin="4, 0, 0, 0" FontSize="14" Height="28" Width="90"
+                        Content="{x:Static p:Resources.Transactions_Duplicate_Dialog_Cancel}"
+                        Command="local:TransactionsDuplicationWindowCommands.Cancel" />
+            </StackPanel>
+        </Grid>
+        <!-- Text and date picker -->
+        <StackPanel Margin="32" VerticalAlignment="Center">
+            <TextBlock FontSize="14" HorizontalAlignment="Center"
+                       Text="{x:Static p:Resources.Transactions_Duplicate_Dialog_Header}" />
+            <DatePicker FontSize="14" HorizontalAlignment="Center"
+                        x:Name="DatePicker" Margin="0, 16, 0, 0" />
+        </StackPanel>
+    </DockPanel>
+</Window>

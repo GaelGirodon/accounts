@@ -1,0 +1,325 @@
+﻿<Window x:Class="Accounts.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Accounts.Windows"
+        xmlns:vm="clr-namespace:Accounts.ViewModels"
+        xmlns:uc="clr-namespace:Accounts.Controls"
+        xmlns:p="clr-namespace:Accounts.Properties"
+        mc:Ignorable="d" d:DataContext="{d:DesignInstance vm:MainViewModel}"
+        Title="{Binding Title}"
+        Height="720" Width="1280" WindowStartupLocation="CenterScreen"
+        Closing="Window_OnClosing" Icon="../Images/Icon.ico">
+    <!-- Resources -->
+    <Window.Resources>
+        <Style TargetType="ListViewItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        </Style>
+    </Window.Resources>
+    <!-- Command bindings -->
+    <Window.CommandBindings>
+        <CommandBinding Command="New" CanExecute="NewCommand_OnCanExecute" Executed="NewCommand_OnExecuted" />
+        <CommandBinding Command="Open" CanExecute="OpenCommand_OnCanExecute" Executed="OpenCommand_OnExecuted" />
+        <CommandBinding Command="Save" CanExecute="SaveCommand_OnCanExecute" Executed="SaveCommand_OnExecuted" />
+        <CommandBinding Command="local:MainWindowCommands.Archive"
+                        CanExecute="ArchiveCommand_OnCanExecute" Executed="ArchiveCommand_OnExecuted" />
+        <CommandBinding Command="local:MainWindowCommands.Close"
+                        CanExecute="CloseCommand_OnCanExecute" Executed="CloseCommand_OnExecuted" />
+        <CommandBinding Command="local:MainWindowCommands.Duplicate"
+                        CanExecute="DuplicateCommand_OnCanExecute" Executed="DuplicateCommand_OnExecuted" />
+        <CommandBinding Command="local:MainWindowCommands.PreviousYear"
+                        CanExecute="PreviousYearCommand_OnCanExecute" Executed="PreviousYearCommand_OnExecuted" />
+        <CommandBinding Command="local:MainWindowCommands.PreviousMonth"
+                        CanExecute="PreviousMonthCommand_OnCanExecute" Executed="PreviousMonthCommand_OnExecuted" />
+        <CommandBinding Command="local:MainWindowCommands.NextMonth"
+                        CanExecute="NextMonthCommand_OnCanExecute" Executed="NextMonthCommand_OnExecuted" />
+        <CommandBinding Command="local:MainWindowCommands.NextYear"
+                        CanExecute="NextYearCommand_OnCanExecute" Executed="NextYearCommand_OnExecuted" />
+
+    </Window.CommandBindings>
+    <!-- Content -->
+    <DockPanel>
+        <!-- Menu -->
+        <Menu DockPanel.Dock="Top" FontSize="14">
+            <MenuItem Header="{x:Static p:Resources.Menu_File}" Height="32">
+                <MenuItem Header="{x:Static p:Resources.Menu_File_New}" Command="New" />
+                <MenuItem Header="{x:Static p:Resources.Menu_File_Open}" Command="Open" />
+                <MenuItem Header="{x:Static p:Resources.Menu_File_Save}" Command="Save" />
+                <MenuItem Header="{x:Static p:Resources.Menu_File_Archive}" Command="local:MainWindowCommands.Archive"
+                          ToolTip="{x:Static p:Resources.Menu_File_Archive_Description}" />
+                <Separator />
+                <MenuItem Header="{x:Static p:Resources.Menu_File_Close}" Command="local:MainWindowCommands.Close" />
+                <Separator />
+                <MenuItem Header="{x:Static p:Resources.Menu_File_Exit}" Click="ExitMenuItem_OnClick"
+                          InputGestureText="Alt+F4" />
+            </MenuItem>
+            <MenuItem Header="{x:Static p:Resources.Menu_Edit}" Height="32">
+                <MenuItem Header="{x:Static p:Resources.Menu_Edit_Cut}" Command="Cut" />
+                <MenuItem Header="{x:Static p:Resources.Menu_Edit_Copy}" Command="Copy" />
+                <MenuItem Header="{x:Static p:Resources.Menu_Edit_Paste}" Command="Paste" />
+                <Separator />
+                <MenuItem Header="{x:Static p:Resources.Menu_Edit_Duplicate}"
+                          Command="local:MainWindowCommands.Duplicate"
+                          ToolTip="{x:Static p:Resources.Menu_Edit_Duplicate_Description}" />
+            </MenuItem>
+            <MenuItem Header="{x:Static p:Resources.Menu_Help}" Height="32">
+                <MenuItem Header="{x:Static p:Resources.Menu_Help_About}"
+                          Click="AboutMenuItem_OnClick" />
+            </MenuItem>
+        </Menu>
+        <!-- Content -->
+        <Grid>
+            <!-- Account -->
+            <Grid Visibility="{Binding AccountVisibility, Mode=OneWay}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300*" />
+                    <ColumnDefinition Width="2" />
+                    <ColumnDefinition Width="200*" />
+                </Grid.ColumnDefinitions>
+                <!-- Transactions -->
+                <DockPanel>
+                    <!-- Navigation -->
+                    <DockPanel DockPanel.Dock="Top" Margin="12, 12, 12, 12">
+                        <Button DockPanel.Dock="Left" Width="28" Margin="4" FontSize="14" Height="28"
+                                ToolTip="{x:Static p:Resources.Navigation_Year_Previous}"
+                                Command="local:MainWindowCommands.PreviousYear">
+                            <Image Source="../Images/Arrow-Double-Left-16x16.png" Width="16" Height="16"
+                                   RenderOptions.BitmapScalingMode="Fant" />
+                        </Button>
+                        <Button DockPanel.Dock="Left" Width="28" Margin="4" FontSize="14" Height="28"
+                                ToolTip="{x:Static p:Resources.Navigation_Month_Previous}"
+                                Command="local:MainWindowCommands.PreviousMonth">
+                            <Image Source="../Images/Arrow-Left-16x16.png" Width="16" Height="16"
+                                   RenderOptions.BitmapScalingMode="Fant" />
+                        </Button>
+                        <Button DockPanel.Dock="Right" Width="28" Margin="4" FontSize="14" Height="28"
+                                ToolTip="{x:Static p:Resources.Navigation_Year_Next}"
+                                Command="local:MainWindowCommands.NextYear">
+                            <Image Source="../Images/Arrow-Double-Right-16x16.png" Width="16" Height="16"
+                                   RenderOptions.BitmapScalingMode="Fant" />
+                        </Button>
+                        <Button DockPanel.Dock="Right" Width="28" Margin="4" FontSize="14" Height="28"
+                                ToolTip="{x:Static p:Resources.Navigation_Month_Next}"
+                                Command="local:MainWindowCommands.NextMonth">
+                            <Image Source="../Images/Arrow-Right-16x16.png" Width="16" Height="16"
+                                   RenderOptions.BitmapScalingMode="Fant" />
+                        </Button>
+                        <Button HorizontalAlignment="Center" Height="28"
+                                ToolTip="{x:Static p:Resources.Navigation_Current}"
+                                Click="CurrentButton_OnClick">
+                            <TextBlock FontSize="14" Margin="8, 0"
+                                       Text="{Binding DateFilter, StringFormat='MMMM yyyy', Mode=OneWay}" />
+                        </Button>
+                    </DockPanel>
+                    <!-- Footer -->
+                    <UniformGrid DockPanel.Dock="Bottom" Columns="3" Margin="16, 0, 16, 20">
+                        <!-- Credit -->
+                        <StackPanel Orientation="Horizontal"
+                                    ToolTip="{x:Static p:Resources.Transactions_Credit_Description}">
+                            <TextBlock FontSize="14" FontWeight="SemiBold"
+                                       Text="{x:Static p:Resources.Transactions_Credit}" />
+                            <uc:AmountArrow Amount="1" Margin="8, 0, 0, 0" />
+                            <TextBlock FontSize="14" Margin="6, 0, 4, 0" Foreground="#44bd32"
+                                       Text="{Binding MonthCredit, Mode=OneWay}" />
+                            <TextBlock FontSize="14" Foreground="#44bd32" Text="€" />
+                        </StackPanel>
+                        <!-- Debit -->
+                        <StackPanel Orientation="Horizontal"
+                                    ToolTip="{x:Static p:Resources.Transactions_Debit_Description}">
+                            <TextBlock FontSize="14" FontWeight="SemiBold"
+                                       Text="{x:Static p:Resources.Transactions_Debit}" />
+                            <uc:AmountArrow Amount="-1" Margin="8, 0, 0, 0" />
+                            <TextBlock FontSize="14" Margin="6, 0, 4, 0" Foreground="#c23616"
+                                       Text="{Binding MonthDebit, Mode=OneWay}" />
+                            <TextBlock FontSize="14" Foreground="#c23616" Text="€" />
+                        </StackPanel>
+                        <!-- Balance -->
+                        <StackPanel Orientation="Horizontal" Margin="0, -4"
+                                    Background="{Binding CurrentBalanceColor, Mode=OneWay}"
+                                    ToolTip="{x:Static p:Resources.Transactions_Balance_Description}">
+                            <TextBlock FontSize="14" Foreground="White" FontWeight="SemiBold" Margin="8, 4, 0, 4"
+                                       Text="{x:Static p:Resources.Transactions_Balance}" />
+                            <TextBlock FontSize="14" Foreground="White" Margin="4, 4, 4, 4"
+                                       Text="{Binding CurrentBalance, Mode=OneWay}" />
+                            <TextBlock FontSize="14" Foreground="White" Margin="0, 4, 8, 4"
+                                       Text="€" />
+                        </StackPanel>
+                    </UniformGrid>
+                    <!-- Content -->
+                    <ListView Margin="16, 0, 16, 16" FontSize="14"
+                              ItemsSource="{Binding FilteredTransactions, Mode=OneWay}"
+                              SelectedItem="{Binding SelectedTransaction}"
+                              SelectionChanged="TransactionsListView_OnSelectionChanged">
+                        <ListView.View>
+                            <GridView AllowsColumnReorder="False"
+                                      d:DataContext="{d:DesignInstance vm:TransactionViewModel}">
+                                <!-- Date -->
+                                <GridViewColumn Header="{x:Static p:Resources.Transaction_Date}" Width="90"
+                                                DisplayMemberBinding="{Binding Date, StringFormat=d, Mode=OneWay}" />
+                                <!-- Name -->
+                                <GridViewColumn Header="{x:Static p:Resources.Transaction_Name}" Width="160">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock FontWeight="SemiBold" Text="{Binding Name, Mode=OneWay}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <!-- Payment method -->
+                                <GridViewColumn Header="{x:Static p:Resources.Transaction_Method}" Width="100"
+                                                DisplayMemberBinding="{Binding PaymentMethod, Mode=OneWay}" />
+                                <!-- Amount -->
+                                <GridViewColumn Header="{x:Static p:Resources.Transaction_Amount}" Width="110">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <uc:AmountArrow Margin="4, 0, 4, 0" HorizontalAlignment="Left"
+                                                                Amount="{Binding Amount, Mode=OneWay}" />
+                                                <TextBlock TextAlignment="Right" Margin="24, 0, 0, 0"
+                                                           Foreground="{Binding AmountColor, Mode=OneWay}"
+                                                           Text="{Binding Amount, StringFormat='{}{0:C}', Mode=OneWay}" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <!-- Checked -->
+                                <GridViewColumn Header="{x:Static p:Resources.Transaction_Checked}" Width="80">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Image Source="../Images/Checked-16x16.png" Width="16" Height="16"
+                                                       Visibility="{Binding CheckedVisibility}" />
+                                                <Image Source="../Images/Question-16x16.png" Width="16" Height="16"
+                                                       Visibility="{Binding NotCheckedVisibility}"
+                                                       RenderOptions.BitmapScalingMode="HighQuality" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </DockPanel>
+                <GridSplitter Grid.Column="1" Width="2" HorizontalAlignment="Stretch" />
+                <!-- Selected transaction -->
+                <StackPanel Grid.Column="2" Orientation="Vertical">
+                    <!-- Title -->
+                    <TextBlock Margin="16, 18" FontSize="16" Text="{Binding Name, FallbackValue='', Mode=OneWay}"
+                               Visibility="{Binding FormVisibility, Mode=OneWay}" />
+                    <!-- Form -->
+                    <Grid Margin="16, 8, 16, 8" VerticalAlignment="Top"
+                          Visibility="{Binding FormVisibility, Mode=OneWay}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="96" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <!-- Name -->
+                        <Label Grid.Column="0" Grid.Row="0" Margin="3" FontSize="14"
+                               Content="{x:Static p:Resources.Transaction_Name}" />
+                        <ComboBox Grid.Column="1" Grid.Row="0" x:Name="NameComboBox" Margin="3" FontSize="14"
+                                  IsEditable="True" VerticalContentAlignment="Center" StaysOpenOnEdit="True"
+                                  IsTextSearchEnabled="False"
+                                  ItemsSource="{Binding SuggestedNames, Mode=OneWay}"
+                                  Text="{Binding Name, FallbackValue=''}" />
+                        <!-- Date -->
+                        <Label Grid.Column="0" Grid.Row="1" Margin="3" FontSize="14"
+                               Content="{x:Static p:Resources.Transaction_Date}" />
+                        <DatePicker Grid.Column="1" Grid.Row="1" Margin="3" FontSize="14"
+                                    SelectedDate="{Binding Date, FallbackValue=''}" />
+                        <!-- Method -->
+                        <Label Grid.Column="0" Grid.Row="2" Margin="3" FontSize="14"
+                               Content="{x:Static p:Resources.Transaction_Method}" />
+                        <ComboBox Grid.Column="1" Grid.Row="2" Margin="3" FontSize="14" IsEditable="True"
+                                  VerticalContentAlignment="Center"
+                                  ItemsSource="{Binding SuggestedMethods, Mode=OneWay}"
+                                  Text="{Binding Method, FallbackValue=''}" />
+                        <!-- Amount -->
+                        <Label Grid.Column="0" Grid.Row="3" Margin="3" FontSize="14"
+                               Content="{x:Static p:Resources.Transaction_Amount}" />
+                        <DockPanel Grid.Column="1" Grid.Row="3" Margin="3">
+                            <TextBox DockPanel.Dock="Right" Width="28" FontSize="14" VerticalContentAlignment="Center"
+                                     Text="{Binding Currency, Mode=OneWay}"
+                                     BorderThickness="0, 1, 1, 1" TextAlignment="Center" IsEnabled="False" />
+                            <TextBox FontSize="14" VerticalContentAlignment="Center" TextAlignment="Right"
+                                     Text="{Binding Amount, FallbackValue=''}" />
+                        </DockPanel>
+                        <!-- Checked -->
+                        <Label Grid.Column="0" Grid.Row="4" Margin="3" FontSize="14"
+                               Content="{x:Static p:Resources.Transaction_Checked}" />
+                        <CheckBox Grid.Column="1" Grid.Row="4" Margin="0, 7" BorderThickness="0.8"
+                                  IsChecked="{Binding IsChecked, FallbackValue=False}">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="1.25" ScaleY="1.25" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                    </Grid>
+                    <!-- Buttons -->
+                    <UniformGrid Columns="3" Margin="16" Height="28"
+                                 Visibility="{Binding FormVisibility, Mode=OneWay}">
+                        <Button Margin="4, 0" IsDefault="True" Click="SaveButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="../Images/Save-16x16.png" Width="16" Height="16" Margin="0, 0, 8, 0" />
+                                <TextBlock Text="{x:Static p:Resources.Transaction_Form_Save}" FontSize="14"
+                                           ToolTip="{x:Static p:Resources.Transaction_Form_Save_Description}" />
+                            </StackPanel>
+                        </Button>
+                        <Button Margin="4, 0" IsCancel="True" Click="CancelButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="../Images/Cancel-16x16.png" Width="16" Height="16" Margin="0, 0, 8, 0" />
+                                <TextBlock Text="{x:Static p:Resources.Transaction_Form_Cancel}" FontSize="14"
+                                           ToolTip="{x:Static p:Resources.Transaction_Form_Cancel_Description}" />
+                            </StackPanel>
+                        </Button>
+                        <Button Margin="4, 0" Click="DeleteButton_OnClick">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="../Images/Delete-16x16.png" Width="16" Height="16" Margin="0, 0, 8, 0" />
+                                <TextBlock Text="{x:Static p:Resources.Transaction_Form_Delete}" FontSize="14"
+                                           ToolTip="{x:Static p:Resources.Transaction_Form_Delete_Description}" />
+                            </StackPanel>
+                        </Button>
+                    </UniformGrid>
+                    <!-- Add button -->
+                    <Button Margin="0, 64, 0, 0" HorizontalAlignment="Center" FontSize="16" Width="96" Height="96"
+                            ToolTip="{x:Static p:Resources.Transaction_Form_Add_Description}"
+                            Visibility="{Binding AddButtonVisibility, Mode=OneWay}"
+                            Click="AddButton_OnClick">
+                        <StackPanel VerticalAlignment="Center">
+                            <Image Source="../Images/Add-32x32.png" Width="32" Height="32" Margin="8" />
+                            <TextBlock Text="{x:Static p:Resources.Transaction_Form_Add}"
+                                       Margin="0, 0, 0, 8" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <!-- Home -->
+            <StackPanel Background="#353b48" Visibility="{Binding HomeVisibility, Mode=OneWay}">
+                <TextBlock FontSize="36" FontWeight="Light" Text="{x:Static p:Resources.Application_Name}"
+                           Margin="0, 32" HorizontalAlignment="Center" Foreground="White" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <!-- New -->
+                    <Button FontSize="16" Margin="8" Width="96" Height="96" Background="White" Command="New">
+                        <StackPanel VerticalAlignment="Center">
+                            <Image Source="../Images/New-32x32.png" Width="32" Height="32" Margin="8" />
+                            <TextBlock Text="{x:Static p:Resources.Home_New}" Margin="0, 0, 0, 8" />
+                        </StackPanel>
+                    </Button>
+                    <!-- Open -->
+                    <Button FontSize="16" Margin="8" Width="96" Height="96" Background="White" Command="Open">
+                        <StackPanel VerticalAlignment="Center">
+                            <Image Source="../Images/Open-32x32.png" Width="32" Height="32" Margin="8" />
+                            <TextBlock Text="{x:Static p:Resources.Home_Open}" Margin="0, 0, 0, 8" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</Window>

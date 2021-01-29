@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <data name="Application_Name" xml:space="preserve">
+        <value>Accounts</value>
+    </data>
+    <data name="Menu_File" xml:space="preserve">
+        <value>File</value>
+    </data>
+    <data name="Menu_File_New" xml:space="preserve">
+        <value>New</value>
+    </data>
+    <data name="Menu_File_Open" xml:space="preserve">
+        <value>Open</value>
+    </data>
+    <data name="Menu_File_Save" xml:space="preserve">
+        <value>Save</value>
+    </data>
+    <data name="Menu_File_Close" xml:space="preserve">
+        <value>Close</value>
+    </data>
+    <data name="Menu_File_Exit" xml:space="preserve">
+        <value>Exit</value>
+    </data>
+    <data name="Menu_Edit" xml:space="preserve">
+        <value>Edit</value>
+    </data>
+    <data name="Menu_Edit_Duplicate" xml:space="preserve">
+        <value>Duplicate...</value>
+    </data>
+    <data name="Home_New" xml:space="preserve">
+        <value>New</value>
+    </data>
+    <data name="Home_Open" xml:space="preserve">
+        <value>Open</value>
+    </data>
+    <data name="Transaction" xml:space="preserve">
+        <value>Transaction</value>
+    </data>
+    <data name="Transaction_Name" xml:space="preserve">
+        <value>Name</value>
+    </data>
+    <data name="Transaction_Date" xml:space="preserve">
+        <value>Date</value>
+    </data>
+    <data name="Transaction_Method" xml:space="preserve">
+        <value>Method</value>
+    </data>
+    <data name="Transaction_Method_Card" xml:space="preserve">
+        <value>Card</value>
+    </data>
+    <data name="Transaction_Method_Cheque" xml:space="preserve">
+        <value>Cheque</value>
+    </data>
+    <data name="Transaction_Method_Cash" xml:space="preserve">
+        <value>Cash</value>
+    </data>
+    <data name="Transaction_Method_Transfer" xml:space="preserve">
+        <value>Transfer</value>
+    </data>
+    <data name="Transaction_Amount" xml:space="preserve">
+        <value>Amount</value>
+    </data>
+    <data name="Transaction_Checked" xml:space="preserve">
+        <value>Checked</value>
+    </data>
+    <data name="Transaction_Form_Save" xml:space="preserve">
+        <value>Save</value>
+    </data>
+    <data name="Transaction_Form_Cancel" xml:space="preserve">
+        <value>Cancel</value>
+    </data>
+    <data name="Transaction_Form_Delete" xml:space="preserve">
+        <value>Delete</value>
+    </data>
+    <data name="Navigation_Current" xml:space="preserve">
+        <value>Go to the current month</value>
+    </data>
+    <data name="Navigation_Month_Previous" xml:space="preserve">
+        <value>Previous month (Ctrl+Shift+Tab)</value>
+    </data>
+    <data name="Navigation_Month_Next" xml:space="preserve">
+        <value>Next month (Ctrl+Tab)</value>
+    </data>
+    <data name="Navigation_Year_Next" xml:space="preserve">
+        <value>Next year</value>
+    </data>
+    <data name="Navigation_Year_Previous" xml:space="preserve">
+        <value>Previous year</value>
+    </data>
+    <data name="Menu_Edit_Cut" xml:space="preserve">
+        <value>Cut</value>
+    </data>
+    <data name="Menu_Edit_Copy" xml:space="preserve">
+        <value>Copy</value>
+    </data>
+    <data name="Menu_Edit_Paste" xml:space="preserve">
+        <value>Paste</value>
+    </data>
+    <data name="Menu_Help" xml:space="preserve">
+        <value>Help</value>
+    </data>
+    <data name="Menu_Help_About" xml:space="preserve">
+        <value>About</value>
+    </data>
+    <data name="Transaction_Form_Save_Description" xml:space="preserve">
+        <value>Save modifications</value>
+    </data>
+    <data name="Transaction_Form_Cancel_Description" xml:space="preserve">
+        <value>Cancel modifications</value>
+    </data>
+    <data name="Transaction_Form_Delete_Description" xml:space="preserve">
+        <value>Delete transaction</value>
+    </data>
+    <data name="Transaction_Form_Add" xml:space="preserve">
+        <value>Add</value>
+    </data>
+    <data name="Transaction_Form_Add_Description" xml:space="preserve">
+        <value>Add a transaction</value>
+    </data>
+    <data name="Transactions_Credit" xml:space="preserve">
+        <value>Credit:</value>
+    </data>
+    <data name="Transactions_Debit" xml:space="preserve">
+        <value>Debit:</value>
+    </data>
+    <data name="Transactions_Balance" xml:space="preserve">
+        <value>Balance:</value>
+    </data>
+    <data name="Transactions_Credit_Description" xml:space="preserve">
+        <value>Month credits sum</value>
+    </data>
+    <data name="Transactions_Debit_Description" xml:space="preserve">
+        <value>Month debits sum</value>
+    </data>
+    <data name="Transactions_Balance_Description" xml:space="preserve">
+        <value>Account balance at the end of the month</value>
+    </data>
+    <data name="Transaction_Name_DefaultValue" xml:space="preserve">
+        <value>New transaction</value>
+    </data>
+    <data name="Menu_Edit_Duplicate_Description" xml:space="preserve">
+        <value>Duplicate selected transactions</value>
+    </data>
+    <data name="Transaction_Form_Delete_Confirmation" xml:space="preserve">
+        <value>Deleting a transaction cannot be undone, are you sure you want to proceed?</value>
+    </data>
+    <data name="Transaction_Form_Save_Validation_NameRequired" xml:space="preserve">
+        <value>Transaction name is required</value>
+    </data>
+    <data name="Transaction_Form_Save_Validation_MethodRequired" xml:space="preserve">
+        <value>Transaction method is required</value>
+    </data>
+    <data name="Transactions_Duplicate_Dialog_Title" xml:space="preserve">
+        <value>Duplicate transactions</value>
+    </data>
+    <data name="Transactions_Duplicate_Dialog_Header" xml:space="preserve">
+        <value>Duplicate selected transactions to:</value>
+    </data>
+    <data name="Transactions_Duplicate_Dialog_Submit" xml:space="preserve">
+        <value>Duplicate</value>
+    </data>
+    <data name="Transactions_Duplicate_Dialog_Cancel" xml:space="preserve">
+        <value>Cancel</value>
+    </data>
+    <data name="Account_Save_Dialog_Title" xml:space="preserve">
+        <value>Save the account file</value>
+    </data>
+    <data name="Account_Open_Dialog_Title" xml:space="preserve">
+        <value>Open an account file</value>
+    </data>
+    <data name="Account_Open_InvalidFile" xml:space="preserve">
+        <value>The selected file is not a valid account file.</value>
+    </data>
+    <data name="Account_Save_Success" xml:space="preserve">
+        <value>Account successfully saved to {0}.</value>
+    </data>
+    <data name="Account_Save_Error" xml:space="preserve">
+        <value>An error occurred, unable to save the account file to the selected location.</value>
+    </data>
+    <data name="Transactions_Duplicate_Success" xml:space="preserve">
+        <value>Selected transactions have been successfully duplicated to {0}.</value>
+    </data>
+    <data name="Account_DefaultFileName" xml:space="preserve">
+        <value>MyAccount</value>
+    </data>
+    <data name="Account_FileType" xml:space="preserve">
+        <value>Account file</value>
+    </data>
+    <data name="Menu_File_Archive" xml:space="preserve">
+        <value>Archive</value>
+    </data>
+    <data name="Menu_File_Archive_Description" xml:space="preserve">
+        <value>Create a backup of the account file</value>
+    </data>
+    <data name="Account_Archive_Success" xml:space="preserve">
+        <value>Account successfully backed up to {0}.</value>
+    </data>
+    <data name="Account_Archive_Error" xml:space="preserve">
+        <value>An error occurred, unable to create a backup of the account file.</value>
+    </data>
+    <data name="Account_Archive_Title" xml:space="preserve">
+        <value>Archive account</value>
+    </data>
+    <data name="Account_Save_BeforeExit_Content" xml:space="preserve">
+        <value>Do you want to save the account before exit?</value>
+    </data>
+    <data name="Account_Save_BeforeExit_Title" xml:space="preserve">
+        <value>Save the account</value>
+    </data>
+    <data name="About_Title" xml:space="preserve">
+        <value>About</value>
+    </data>
+    <data name="About_Content" xml:space="preserve">
+        <value>Accounts is a basic personal financial-accounting software.
+
+https://github.com/GaelGirodon/accounts</value>
+    </data>
+    <data name="Transaction_Form_Save_Validation_InvalidAmount" xml:space="preserve">
+        <value>Transaction amount is invalid</value>
+    </data>
+</root>
