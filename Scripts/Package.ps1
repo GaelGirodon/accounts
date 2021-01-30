@@ -1,4 +1,4 @@
-﻿#
+#
 # Package.ps1
 #
 # Build and package the application.
