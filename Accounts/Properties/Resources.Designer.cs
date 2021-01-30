@@ -198,7 +198,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New.
+        ///   Looks up a localized string similar to _New.
         /// </summary>
         public static string Home_New {
             get {
@@ -207,7 +207,16 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Open.
+        ///   Looks up a localized string similar to Create a new account (Ctrl+N).
+        /// </summary>
+        public static string Home_New_Description {
+            get {
+                return ResourceManager.GetString("Home_New_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _Open.
         /// </summary>
         public static string Home_Open {
             get {
@@ -216,7 +225,16 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit.
+        ///   Looks up a localized string similar to Open an account file (Ctrl+O).
+        /// </summary>
+        public static string Home_Open_Description {
+            get {
+                return ResourceManager.GetString("Home_Open_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _Edit.
         /// </summary>
         public static string Menu_Edit {
             get {
@@ -225,7 +243,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copy.
+        ///   Looks up a localized string similar to _Copy.
         /// </summary>
         public static string Menu_Edit_Copy {
             get {
@@ -243,7 +261,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Duplicate....
+        ///   Looks up a localized string similar to _Duplicate....
         /// </summary>
         public static string Menu_Edit_Duplicate {
             get {
@@ -270,7 +288,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to File.
+        ///   Looks up a localized string similar to _File.
         /// </summary>
         public static string Menu_File {
             get {
@@ -279,7 +297,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Archive.
+        ///   Looks up a localized string similar to A_rchive.
         /// </summary>
         public static string Menu_File_Archive {
             get {
@@ -297,7 +315,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Close.
+        ///   Looks up a localized string similar to _Close.
         /// </summary>
         public static string Menu_File_Close {
             get {
@@ -306,7 +324,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Exit.
+        ///   Looks up a localized string similar to _Exit.
         /// </summary>
         public static string Menu_File_Exit {
             get {
@@ -315,7 +333,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New.
+        ///   Looks up a localized string similar to _New.
         /// </summary>
         public static string Menu_File_New {
             get {
@@ -324,7 +342,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Open.
+        ///   Looks up a localized string similar to _Open.
         /// </summary>
         public static string Menu_File_Open {
             get {
@@ -333,7 +351,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save.
+        ///   Looks up a localized string similar to _Save.
         /// </summary>
         public static string Menu_File_Save {
             get {
@@ -342,7 +360,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Help.
+        ///   Looks up a localized string similar to _Help.
         /// </summary>
         public static string Menu_Help {
             get {
@@ -360,7 +378,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Go to the current month.
+        ///   Looks up a localized string similar to Go to the current month (Ctrl+M).
         /// </summary>
         public static string Navigation_Current {
             get {
@@ -441,7 +459,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add.
+        ///   Looks up a localized string similar to _Add.
         /// </summary>
         public static string Transaction_Form_Add {
             get {
@@ -450,7 +468,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add a transaction.
+        ///   Looks up a localized string similar to Add a transaction (Ctrl+T).
         /// </summary>
         public static string Transaction_Form_Add_Description {
             get {
@@ -459,7 +477,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancel.
+        ///   Looks up a localized string similar to _Cancel.
         /// </summary>
         public static string Transaction_Form_Cancel {
             get {
@@ -477,7 +495,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete.
+        ///   Looks up a localized string similar to _Delete.
         /// </summary>
         public static string Transaction_Form_Delete {
             get {
@@ -504,7 +522,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save.
+        ///   Looks up a localized string similar to _Save.
         /// </summary>
         public static string Transaction_Form_Save {
             get {

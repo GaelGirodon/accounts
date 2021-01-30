@@ -28,6 +28,8 @@
                         CanExecute="CloseCommand_OnCanExecute" Executed="CloseCommand_OnExecuted" />
         <CommandBinding Command="local:MainWindowCommands.Duplicate"
                         CanExecute="DuplicateCommand_OnCanExecute" Executed="DuplicateCommand_OnExecuted" />
+        <CommandBinding Command="local:MainWindowCommands.AddTransaction"
+                        CanExecute="AddTransactionCommand_OnCanExecute" Executed="AddTransactionCommand_OnExecuted" />
         <CommandBinding Command="local:MainWindowCommands.PreviousYear"
                         CanExecute="PreviousYearCommand_OnCanExecute" Executed="PreviousYearCommand_OnExecuted" />
         <CommandBinding Command="local:MainWindowCommands.PreviousMonth"
@@ -36,6 +38,8 @@
                         CanExecute="NextMonthCommand_OnCanExecute" Executed="NextMonthCommand_OnExecuted" />
         <CommandBinding Command="local:MainWindowCommands.NextYear"
                         CanExecute="NextYearCommand_OnCanExecute" Executed="NextYearCommand_OnExecuted" />
+        <CommandBinding Command="local:MainWindowCommands.CurrentMonth"
+                        CanExecute="CurrentMonthCommand_OnCanExecute" Executed="CurrentMonthCommand_OnExecuted" />
 
     </Window.CommandBindings>
     <!-- Content -->
@@ -107,7 +111,7 @@
                         </Button>
                         <Button HorizontalAlignment="Center" Height="28"
                                 ToolTip="{x:Static p:Resources.Navigation_Current}"
-                                Click="CurrentButton_OnClick">
+                                Command="local:MainWindowCommands.CurrentMonth">
                             <TextBlock FontSize="14" Margin="8, 0"
                                        Text="{Binding DateFilter, StringFormat='MMMM yyyy', Mode=OneWay}" />
                         </Button>
@@ -264,25 +268,25 @@
                     <!-- Buttons -->
                     <UniformGrid Columns="3" Margin="16" Height="28"
                                  Visibility="{Binding FormVisibility, Mode=OneWay}">
-                        <Button Margin="4, 0" IsDefault="True" Click="SaveButton_OnClick">
+                        <Button Margin="4, 0" IsDefault="True" Click="SaveButton_OnClick"
+                                ToolTip="{x:Static p:Resources.Transaction_Form_Save_Description}">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="../Images/Save-16x16.png" Width="16" Height="16" Margin="0, 0, 8, 0" />
-                                <TextBlock Text="{x:Static p:Resources.Transaction_Form_Save}" FontSize="14"
-                                           ToolTip="{x:Static p:Resources.Transaction_Form_Save_Description}" />
+                                <AccessText Text="{x:Static p:Resources.Transaction_Form_Save}" FontSize="14" />
                             </StackPanel>
                         </Button>
-                        <Button Margin="4, 0" IsCancel="True" Click="CancelButton_OnClick">
+                        <Button Margin="4, 0" IsCancel="True" Click="CancelButton_OnClick"
+                                ToolTip="{x:Static p:Resources.Transaction_Form_Cancel_Description}">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="../Images/Cancel-16x16.png" Width="16" Height="16" Margin="0, 0, 8, 0" />
-                                <TextBlock Text="{x:Static p:Resources.Transaction_Form_Cancel}" FontSize="14"
-                                           ToolTip="{x:Static p:Resources.Transaction_Form_Cancel_Description}" />
+                                <AccessText Text="{x:Static p:Resources.Transaction_Form_Cancel}" FontSize="14" />
                             </StackPanel>
                         </Button>
-                        <Button Margin="4, 0" Click="DeleteButton_OnClick">
+                        <Button Margin="4, 0" Click="DeleteButton_OnClick"
+                                ToolTip="{x:Static p:Resources.Transaction_Form_Delete_Description}">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="../Images/Delete-16x16.png" Width="16" Height="16" Margin="0, 0, 8, 0" />
-                                <TextBlock Text="{x:Static p:Resources.Transaction_Form_Delete}" FontSize="14"
-                                           ToolTip="{x:Static p:Resources.Transaction_Form_Delete_Description}" />
+                                <AccessText Text="{x:Static p:Resources.Transaction_Form_Delete}" FontSize="14" />
                             </StackPanel>
                         </Button>
                     </UniformGrid>
@@ -290,11 +294,11 @@
                     <Button Margin="0, 64, 0, 0" HorizontalAlignment="Center" FontSize="16" Width="96" Height="96"
                             ToolTip="{x:Static p:Resources.Transaction_Form_Add_Description}"
                             Visibility="{Binding AddButtonVisibility, Mode=OneWay}"
-                            Click="AddButton_OnClick">
+                            Command="local:MainWindowCommands.AddTransaction">
                         <StackPanel VerticalAlignment="Center">
                             <Image Source="../Images/Add-32x32.png" Width="32" Height="32" Margin="8" />
-                            <TextBlock Text="{x:Static p:Resources.Transaction_Form_Add}"
-                                       Margin="0, 0, 0, 8" />
+                            <AccessText Text="{x:Static p:Resources.Transaction_Form_Add}"
+                                        Margin="0, 0, 0, 8" />
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -305,17 +309,19 @@
                            Margin="0, 32" HorizontalAlignment="Center" Foreground="White" />
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <!-- New -->
-                    <Button FontSize="16" Margin="8" Width="96" Height="96" Background="White" Command="New">
+                    <Button FontSize="16" Margin="8" Width="96" Height="96" Background="White" Command="New"
+                            ToolTip="{x:Static p:Resources.Home_New_Description}">
                         <StackPanel VerticalAlignment="Center">
                             <Image Source="../Images/New-32x32.png" Width="32" Height="32" Margin="8" />
-                            <TextBlock Text="{x:Static p:Resources.Home_New}" Margin="0, 0, 0, 8" />
+                            <AccessText Text="{x:Static p:Resources.Home_New}" Margin="0, 0, 0, 8" />
                         </StackPanel>
                     </Button>
                     <!-- Open -->
-                    <Button FontSize="16" Margin="8" Width="96" Height="96" Background="White" Command="Open">
+                    <Button FontSize="16" Margin="8" Width="96" Height="96" Background="White" Command="Open"
+                            ToolTip="{x:Static p:Resources.Home_Open_Description}">
                         <StackPanel VerticalAlignment="Center">
                             <Image Source="../Images/Open-32x32.png" Width="32" Height="32" Margin="8" />
-                            <TextBlock Text="{x:Static p:Resources.Home_Open}" Margin="0, 0, 0, 8" />
+                            <AccessText Text="{x:Static p:Resources.Home_Open}" Margin="0, 0, 0, 8" />
                         </StackPanel>
                     </Button>
                 </StackPanel>

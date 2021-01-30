@@ -302,10 +302,15 @@ namespace Accounts.Windows
             _vm.UpdateTransactionsView();
         }
 
+        private void CurrentMonthCommand_OnCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = _vm.HasAccount;
+        }
+
         /// <summary>
         /// Navigate to the current month.
         /// </summary>
-        private void CurrentButton_OnClick(object sender, RoutedEventArgs e)
+        private void CurrentMonthCommand_OnExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             _vm.DateFilter = DateTime.Today;
             _vm.UpdateTransactionsView();
@@ -363,10 +368,15 @@ namespace Accounts.Windows
             _vm.IsChecked = _vm.Transaction.IsChecked;
         }
 
+        private void AddTransactionCommand_OnCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = _vm.HasAccount && _vm.Transaction == null;
+        }
+
         /// <summary>
         /// Initialize the form with default values for a new transaction.
         /// </summary>
-        private void AddButton_OnClick(object sender, RoutedEventArgs e)
+        private void AddTransactionCommand_OnExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             _vm.Transaction = new Transaction();
             _vm.Name = _vm.Transaction.Name;
@@ -455,7 +465,11 @@ namespace Accounts.Windows
         public static readonly RoutedUICommand Archive = new(
             Resources.Menu_File_Archive,
             Resources.Menu_File_Archive,
-            typeof(MainWindowCommands));
+            typeof(MainWindowCommands),
+            new InputGestureCollection
+            {
+                new KeyGesture(Key.B, ModifierKeys.Control)
+            });
 
         /// <summary>
         /// Close the current account file.
@@ -479,6 +493,18 @@ namespace Accounts.Windows
             new InputGestureCollection
             {
                 new KeyGesture(Key.D, ModifierKeys.Control)
+            });
+
+        /// <summary>
+        /// Initialize the form with default values for a new transaction.
+        /// </summary>
+        public static readonly RoutedUICommand AddTransaction = new(
+            Resources.Transaction_Form_Add,
+            Resources.Transaction_Form_Add_Description,
+            typeof(MainWindowCommands),
+            new InputGestureCollection
+            {
+                new KeyGesture(Key.T, ModifierKeys.Control)
             });
 
         /// <summary>
@@ -520,5 +546,17 @@ namespace Accounts.Windows
             Resources.Navigation_Year_Next,
             Resources.Navigation_Year_Next,
             typeof(MainWindowCommands));
+
+        /// <summary>
+        /// Navigate to the current month.
+        /// </summary>
+        public static readonly RoutedUICommand CurrentMonth = new(
+            Resources.Navigation_Current,
+            Resources.Navigation_Current,
+            typeof(MainWindowCommands),
+            new InputGestureCollection
+            {
+                new KeyGesture(Key.M, ModifierKeys.Control)
+            });
     }
 }

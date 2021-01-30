@@ -27,34 +27,34 @@
         <value>Accounts</value>
     </data>
     <data name="Menu_File" xml:space="preserve">
-        <value>File</value>
+        <value>_File</value>
     </data>
     <data name="Menu_File_New" xml:space="preserve">
-        <value>New</value>
+        <value>_New</value>
     </data>
     <data name="Menu_File_Open" xml:space="preserve">
-        <value>Open</value>
+        <value>_Open</value>
     </data>
     <data name="Menu_File_Save" xml:space="preserve">
-        <value>Save</value>
+        <value>_Save</value>
     </data>
     <data name="Menu_File_Close" xml:space="preserve">
-        <value>Close</value>
+        <value>_Close</value>
     </data>
     <data name="Menu_File_Exit" xml:space="preserve">
-        <value>Exit</value>
+        <value>_Exit</value>
     </data>
     <data name="Menu_Edit" xml:space="preserve">
-        <value>Edit</value>
+        <value>_Edit</value>
     </data>
     <data name="Menu_Edit_Duplicate" xml:space="preserve">
-        <value>Duplicate...</value>
+        <value>_Duplicate...</value>
     </data>
     <data name="Home_New" xml:space="preserve">
-        <value>New</value>
+        <value>_New</value>
     </data>
     <data name="Home_Open" xml:space="preserve">
-        <value>Open</value>
+        <value>_Open</value>
     </data>
     <data name="Transaction" xml:space="preserve">
         <value>Transaction</value>
@@ -87,16 +87,16 @@
         <value>Checked</value>
     </data>
     <data name="Transaction_Form_Save" xml:space="preserve">
-        <value>Save</value>
+        <value>_Save</value>
     </data>
     <data name="Transaction_Form_Cancel" xml:space="preserve">
-        <value>Cancel</value>
+        <value>_Cancel</value>
     </data>
     <data name="Transaction_Form_Delete" xml:space="preserve">
-        <value>Delete</value>
+        <value>_Delete</value>
     </data>
     <data name="Navigation_Current" xml:space="preserve">
-        <value>Go to the current month</value>
+        <value>Go to the current month (Ctrl+M)</value>
     </data>
     <data name="Navigation_Month_Previous" xml:space="preserve">
         <value>Previous month (Ctrl+Shift+Tab)</value>
@@ -114,13 +114,13 @@
         <value>Cut</value>
     </data>
     <data name="Menu_Edit_Copy" xml:space="preserve">
-        <value>Copy</value>
+        <value>_Copy</value>
     </data>
     <data name="Menu_Edit_Paste" xml:space="preserve">
         <value>Paste</value>
     </data>
     <data name="Menu_Help" xml:space="preserve">
-        <value>Help</value>
+        <value>_Help</value>
     </data>
     <data name="Menu_Help_About" xml:space="preserve">
         <value>About</value>
@@ -135,10 +135,10 @@
         <value>Delete transaction</value>
     </data>
     <data name="Transaction_Form_Add" xml:space="preserve">
-        <value>Add</value>
+        <value>_Add</value>
     </data>
     <data name="Transaction_Form_Add_Description" xml:space="preserve">
-        <value>Add a transaction</value>
+        <value>Add a transaction (Ctrl+T)</value>
     </data>
     <data name="Transactions_Credit" xml:space="preserve">
         <value>Credit:</value>
@@ -210,7 +210,7 @@
         <value>Account file</value>
     </data>
     <data name="Menu_File_Archive" xml:space="preserve">
-        <value>Archive</value>
+        <value>A_rchive</value>
     </data>
     <data name="Menu_File_Archive_Description" xml:space="preserve">
         <value>Create a backup of the account file</value>
@@ -240,5 +240,11 @@ https://github.com/GaelGirodon/accounts</value>
     </data>
     <data name="Transaction_Form_Save_Validation_InvalidAmount" xml:space="preserve">
         <value>Transaction amount is invalid</value>
+    </data>
+    <data name="Home_New_Description" xml:space="preserve">
+        <value>Create a new account (Ctrl+N)</value>
+    </data>
+    <data name="Home_Open_Description" xml:space="preserve">
+        <value>Open an account file (Ctrl+O)</value>
     </data>
 </root>

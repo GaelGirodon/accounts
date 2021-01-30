@@ -19,34 +19,34 @@
         <value>Comptes</value>
     </data>
     <data name="Menu_File" xml:space="preserve">
-        <value>Fichier</value>
+        <value>_Fichier</value>
     </data>
     <data name="Menu_File_New" xml:space="preserve">
-        <value>Nouveau</value>
+        <value>_Nouveau</value>
     </data>
     <data name="Menu_File_Open" xml:space="preserve">
-        <value>Ouvrir</value>
+        <value>_Ouvrir</value>
     </data>
     <data name="Menu_File_Save" xml:space="preserve">
-        <value>Enregistrer</value>
+        <value>_Enregistrer</value>
     </data>
     <data name="Menu_File_Close" xml:space="preserve">
-        <value>Fermer</value>
+        <value>_Fermer</value>
     </data>
     <data name="Menu_File_Exit" xml:space="preserve">
-        <value>Quitter</value>
+        <value>_Quitter</value>
     </data>
     <data name="Menu_Edit" xml:space="preserve">
-        <value>Édition</value>
+        <value>_Édition</value>
     </data>
     <data name="Menu_Edit_Duplicate" xml:space="preserve">
-        <value>Dupliquer...</value>
+        <value>_Dupliquer...</value>
     </data>
     <data name="Home_New" xml:space="preserve">
-        <value>Nouveau</value>
+        <value>_Nouveau</value>
     </data>
     <data name="Home_Open" xml:space="preserve">
-        <value>Ouvrir</value>
+        <value>_Ouvrir</value>
     </data>
     <data name="Transaction" xml:space="preserve">
         <value>Opération</value>
@@ -79,16 +79,16 @@
         <value>Pointé</value>
     </data>
     <data name="Transaction_Form_Save" xml:space="preserve">
-        <value>Enregistrer</value>
+        <value>_Enregistrer</value>
     </data>
     <data name="Transaction_Form_Cancel" xml:space="preserve">
-        <value>Annuler</value>
+        <value>_Annuler</value>
     </data>
     <data name="Transaction_Form_Delete" xml:space="preserve">
-        <value>Supprimer</value>
+        <value>_Supprimer</value>
     </data>
     <data name="Navigation_Current" xml:space="preserve">
-        <value>Aller au mois actuel</value>
+        <value>Aller au mois actuel (Ctrl+M)</value>
     </data>
     <data name="Navigation_Month_Previous" xml:space="preserve">
         <value>Mois précédent (Ctrl+Shift+Tab)</value>
@@ -103,7 +103,7 @@
         <value>Année précédente</value>
     </data>
     <data name="Menu_Edit_Copy" xml:space="preserve">
-        <value>Copier</value>
+        <value>_Copier</value>
     </data>
     <data name="Menu_Edit_Cut" xml:space="preserve">
         <value>Couper</value>
@@ -127,10 +127,10 @@
         <value>Supprimer l'opération</value>
     </data>
     <data name="Transaction_Form_Add" xml:space="preserve">
-        <value>Ajouter</value>
+        <value>_Ajouter</value>
     </data>
     <data name="Transaction_Form_Add_Description" xml:space="preserve">
-        <value>Ajouter une opération</value>
+        <value>Ajouter une opération (Ctrl+T)</value>
     </data>
     <data name="Transactions_Credit" xml:space="preserve">
         <value>Crédit :</value>
@@ -202,7 +202,7 @@
         <value>Fichier de compte</value>
     </data>
     <data name="Menu_File_Archive" xml:space="preserve">
-        <value>Archiver</value>
+        <value>A_rchiver</value>
     </data>
     <data name="Menu_File_Archive_Description" xml:space="preserve">
         <value>Créer une sauvegarde du fichier de compte</value>
@@ -232,5 +232,11 @@ https://github.com/GaelGirodon/accounts</value>
     </data>
     <data name="Transaction_Form_Save_Validation_InvalidAmount" xml:space="preserve">
         <value>Le montant de l'opération est invalide</value>
+    </data>
+    <data name="Home_New_Description" xml:space="preserve">
+        <value>Créer un nouveau compte (Ctrl+N)</value>
+    </data>
+    <data name="Home_Open_Description" xml:space="preserve">
+        <value>Ouvrir un fichier de compte (Ctrl+O)</value>
     </data>
 </root>
