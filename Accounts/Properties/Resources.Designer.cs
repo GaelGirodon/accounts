@@ -540,7 +540,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Transaction amount is invalid.
+        ///   Looks up a localized string similar to Transaction amount is invalid..
         /// </summary>
         public static string Transaction_Form_Save_Validation_InvalidAmount {
             get {
@@ -549,7 +549,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Transaction method is required.
+        ///   Looks up a localized string similar to Transaction method is required..
         /// </summary>
         public static string Transaction_Form_Save_Validation_MethodRequired {
             get {
@@ -558,7 +558,7 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Transaction name is required.
+        ///   Looks up a localized string similar to Transaction name is required..
         /// </summary>
         public static string Transaction_Form_Save_Validation_NameRequired {
             get {

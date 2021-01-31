@@ -160,10 +160,10 @@
         <value>Supprimer une opération ne peut pas être annulé, confirmez-vous la suppression ?</value>
     </data>
     <data name="Transaction_Form_Save_Validation_NameRequired" xml:space="preserve">
-        <value>Le nom de l'opération doit être renseigné</value>
+        <value>Le nom de l'opération doit être renseigné.</value>
     </data>
     <data name="Transaction_Form_Save_Validation_MethodRequired" xml:space="preserve">
-        <value>La méthode utilisée pour cette opération doit être renseignée</value>
+        <value>La méthode utilisée pour cette opération doit être renseignée.</value>
     </data>
     <data name="Transactions_Duplicate_Dialog_Title" xml:space="preserve">
         <value>Dupliquer des opérations</value>
@@ -231,7 +231,7 @@
 https://github.com/GaelGirodon/accounts</value>
     </data>
     <data name="Transaction_Form_Save_Validation_InvalidAmount" xml:space="preserve">
-        <value>Le montant de l'opération est invalide</value>
+        <value>Le montant de l'opération est invalide.</value>
     </data>
     <data name="Home_New_Description" xml:space="preserve">
         <value>Créer un nouveau compte (Ctrl+N)</value>

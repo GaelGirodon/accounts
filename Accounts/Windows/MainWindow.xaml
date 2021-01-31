@@ -241,8 +241,8 @@
                         <!-- Method -->
                         <Label Grid.Column="0" Grid.Row="2" Margin="3" FontSize="14"
                                Content="{x:Static p:Resources.Transaction_Method}" />
-                        <ComboBox Grid.Column="1" Grid.Row="2" Margin="3" FontSize="14" IsEditable="True"
-                                  VerticalContentAlignment="Center"
+                        <ComboBox Grid.Column="1" Grid.Row="2" x:Name="MethodComboBox" Margin="3" FontSize="14"
+                                  IsEditable="True" VerticalContentAlignment="Center"
                                   ItemsSource="{Binding SuggestedMethods, Mode=OneWay}"
                                   Text="{Binding Method, FallbackValue=''}" />
                         <!-- Amount -->
@@ -253,7 +253,8 @@
                                      Text="{Binding Currency, Mode=OneWay}"
                                      BorderThickness="0, 1, 1, 1" TextAlignment="Center" IsEnabled="False" />
                             <TextBox FontSize="14" VerticalContentAlignment="Center" TextAlignment="Right"
-                                     Text="{Binding Amount, FallbackValue=''}" />
+                                     Text="{Binding Amount, FallbackValue=''}"
+                                     PreviewKeyDown="AmountTextBox_OnPreviewKeyDown" />
                         </DockPanel>
                         <!-- Checked -->
                         <Label Grid.Column="0" Grid.Row="4" Margin="3" FontSize="14"
@@ -298,7 +299,7 @@
                         <StackPanel VerticalAlignment="Center">
                             <Image Source="../Images/Add-32x32.png" Width="32" Height="32" Margin="8" />
                             <AccessText Text="{x:Static p:Resources.Transaction_Form_Add}"
-                                        Margin="0, 0, 0, 8" />
+                                        Margin="0, 0, 0, 8" TextAlignment="Center" />
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -313,7 +314,8 @@
                             ToolTip="{x:Static p:Resources.Home_New_Description}">
                         <StackPanel VerticalAlignment="Center">
                             <Image Source="../Images/New-32x32.png" Width="32" Height="32" Margin="8" />
-                            <AccessText Text="{x:Static p:Resources.Home_New}" Margin="0, 0, 0, 8" />
+                            <AccessText Text="{x:Static p:Resources.Home_New}" TextAlignment="Center"
+                                        Margin="0, 0, 0, 8" />
                         </StackPanel>
                     </Button>
                     <!-- Open -->
@@ -321,7 +323,8 @@
                             ToolTip="{x:Static p:Resources.Home_Open_Description}">
                         <StackPanel VerticalAlignment="Center">
                             <Image Source="../Images/Open-32x32.png" Width="32" Height="32" Margin="8" />
-                            <AccessText Text="{x:Static p:Resources.Home_Open}" Margin="0, 0, 0, 8" />
+                            <AccessText Text="{x:Static p:Resources.Home_Open}" TextAlignment="Center"
+                                        Margin="0, 0, 0, 8" />
                         </StackPanel>
                     </Button>
                 </StackPanel>

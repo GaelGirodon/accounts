@@ -168,10 +168,10 @@
         <value>Deleting a transaction cannot be undone, are you sure you want to proceed?</value>
     </data>
     <data name="Transaction_Form_Save_Validation_NameRequired" xml:space="preserve">
-        <value>Transaction name is required</value>
+        <value>Transaction name is required.</value>
     </data>
     <data name="Transaction_Form_Save_Validation_MethodRequired" xml:space="preserve">
-        <value>Transaction method is required</value>
+        <value>Transaction method is required.</value>
     </data>
     <data name="Transactions_Duplicate_Dialog_Title" xml:space="preserve">
         <value>Duplicate transactions</value>
@@ -239,7 +239,7 @@
 https://github.com/GaelGirodon/accounts</value>
     </data>
     <data name="Transaction_Form_Save_Validation_InvalidAmount" xml:space="preserve">
-        <value>Transaction amount is invalid</value>
+        <value>Transaction amount is invalid.</value>
     </data>
     <data name="Home_New_Description" xml:space="preserve">
         <value>Create a new account (Ctrl+N)</value>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -40,9 +41,10 @@ namespace Accounts.Windows
         /// </summary>
         private void NewCommand_OnExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            if (!AskSave()) return;
+            if (!AskSave())
+                return;
             _vm.Account = new Account();
-            _vm.UpdateTransactionsView();
+            _vm.Clean();
         }
 
         /// <summary>
@@ -54,6 +56,7 @@ namespace Accounts.Windows
             try
             {
                 _vm.Account = AccountService.Open(path);
+                _vm.Clean();
             }
             catch (Exception)
             {
@@ -61,10 +64,7 @@ namespace Accounts.Windows
                     Properties.Resources.Account_Open_InvalidFile,
                     Properties.Resources.Account_Open_Dialog_Title,
                     MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
             }
-
-            _vm.UpdateTransactionsView();
         }
 
         private void OpenCommand_OnCanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -77,13 +77,15 @@ namespace Accounts.Windows
         /// </summary>
         private void OpenCommand_OnExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            if (!AskSave()) return;
+            if (!AskSave())
+                return;
             try
             {
                 var account = AccountService.Open();
                 if (account == null)
                     return;
                 _vm.Account = account;
+                _vm.Clean();
             }
             catch (Exception ex)
             {
@@ -92,10 +94,7 @@ namespace Accounts.Windows
                     Properties.Resources.Account_Open_InvalidFile,
                     Properties.Resources.Account_Open_Dialog_Title,
                     MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
             }
-
-            _vm.UpdateTransactionsView();
         }
 
         private void SaveCommand_OnCanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -169,9 +168,10 @@ namespace Accounts.Windows
         /// </summary>
         private void CloseCommand_OnExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            if (!AskSave()) return;
+            if (!AskSave())
+                return;
             _vm.Account = null;
-            _vm.UpdateTransactionsView();
+            _vm.Clean();
         }
 
         /// <summary>
@@ -361,6 +361,7 @@ namespace Accounts.Windows
                                        ?? new List<TransactionViewModel>();
             if (_vm.Transaction == null)
                 return;
+            ResetComboBoxes();
             _vm.Name = _vm.Transaction.Name;
             _vm.Date = _vm.Transaction.Date;
             _vm.Method = _vm.Transaction.Method;
@@ -379,12 +380,39 @@ namespace Accounts.Windows
         private void AddTransactionCommand_OnExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             _vm.Transaction = new Transaction();
+            ResetComboBoxes();
             _vm.Name = _vm.Transaction.Name;
             _vm.Date = _vm.Transaction.Date;
             _vm.Method = _vm.Transaction.Method;
-            _vm.Amount = _vm.Transaction.AmountAsString;
+            _vm.Amount = string.Empty;
             _vm.IsChecked = _vm.Transaction.IsChecked;
             NameComboBox.Focus();
+        }
+
+        /// <summary>
+        /// Reset transaction form combo-boxes.
+        /// </summary>
+        private void ResetComboBoxes()
+        {
+            NameComboBox.SelectedIndex = -1;
+            MethodComboBox.SelectedIndex = -1;
+        }
+
+        /// <summary>
+        /// Type the right currency decimal separator when the decimal key is pressed.
+        /// </summary>
+        private void AmountTextBox_OnPreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            var currentDecimal = NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator;
+            var invariantDecimal = NumberFormatInfo.InvariantInfo.CurrencyDecimalSeparator;
+            if (e.Key != Key.Decimal || currentDecimal == invariantDecimal || sender is not TextBox textBox)
+                return;
+            var caretIndex = textBox.CaretIndex;
+            textBox.Text = textBox.Text.Substring(0, textBox.SelectionStart)
+                           + currentDecimal
+                           + textBox.Text.Substring(textBox.SelectionStart + textBox.SelectionLength);
+            textBox.CaretIndex = caretIndex + 1;
+            e.Handled = true;
         }
 
         /// <summary>

@@ -40,6 +40,22 @@ namespace Accounts.ViewModels
         private Account? _account;
 
         /// <summary>
+        /// Reset the view model to a clean state
+        /// (to be invoked after the account is changed).
+        /// </summary>
+        public void Clean()
+        {
+            DateFilter = DateTime.Today;
+            SelectedTransaction = null;
+            Name = string.Empty;
+            Date = DateTime.Now;
+            Method = string.Empty;
+            Amount = string.Empty;
+            IsChecked = false;
+            UpdateTransactionsView();
+        }
+
+        /// <summary>
         /// Window title.
         /// </summary>
         public string Title => (_account?.Path == null
