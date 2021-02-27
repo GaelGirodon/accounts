@@ -11,7 +11,8 @@ $ErrorActionPreference = "stop" # Quit if anything goes wrong
 $PackageUrl = "https://github.com/GaelGirodon/accounts/releases/latest/download/Accounts.zip"
 $PackageChecksumUrl = "$PackageUrl.sha256"
 $PackagePath = (Join-Path $env:TEMP "Accounts.zip")
-$InstallPath = (Join-Path $env:LOCALAPPDATA "Programs\Accounts")
+$ProgramsPath = (Join-Path $env:LOCALAPPDATA "Programs")
+$InstallPath = (Join-Path $ProgramsPath "Accounts")
 $StartMenuPath = (Join-Path $env:APPDATA "Microsoft\Windows\Start Menu\Programs")
 
 # Download
@@ -36,6 +37,9 @@ Write-Host -ForegroundColor Green "Checksum is valid"
 
 # Extract
 Write-Host "Extracting archive to $InstallPath..."
+if (!(Test-Path $ProgramsPath)) {
+    New-Item -ItemType "Directory" -Path $ProgramsPath
+}
 Expand-Archive -Path $PackagePath -DestinationPath $InstallPath -Force
 Write-Host -ForegroundColor Green "Archive extracted to $InstallPath"
 
