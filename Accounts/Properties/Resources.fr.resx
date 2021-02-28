@@ -239,4 +239,7 @@ https://github.com/GaelGirodon/accounts</value>
     <data name="Home_Open_Description" xml:space="preserve">
         <value>Ouvrir un fichier de compte (Ctrl+O)</value>
     </data>
+    <data name="Transaction_CheckOff" xml:space="preserve">
+        <value>Pointer</value>
+    </data>
 </root>

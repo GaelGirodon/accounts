@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Accounts.Models
 {
@@ -18,7 +17,7 @@ namespace Accounts.Models
             // Remove the old transaction
             RemoveAll(t => t.Id == transaction.Id);
             // Insert at the right position
-            var nextIndex = FindIndex(t => transaction.Date < t.Date);
+            var nextIndex = FindIndex(t => transaction.CompareTo(t) < 0);
             Insert(nextIndex >= 0 ? nextIndex : Count, transaction);
         }
 
@@ -27,12 +26,15 @@ namespace Accounts.Models
         /// </summary>
         /// <param name="transactions">Transactions to copy</param>
         /// <param name="targetDate">Date for the new transactions</param>
-        /// <returns>Copied transactions count.</returns>
+        /// <returns>Copied transactions count</returns>
         public int Duplicate(List<Transaction> transactions, DateTime targetDate)
         {
-            var nextIndex = FindIndex(t => targetDate < t.Date);
-            InsertRange(nextIndex >= 0 ? nextIndex : Count,
-                transactions.Select(t => new Transaction(t) {Date = targetDate}));
+            for (var i = 0; i < transactions.Count; i++)
+                Save(new Transaction(transactions[i])
+                {
+                    Id = Guid.NewGuid(),
+                    Date = targetDate.AddSeconds(i) // Keep transactions order
+                });
             return transactions.Count;
         }
     }

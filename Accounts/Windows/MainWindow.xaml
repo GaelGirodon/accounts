@@ -28,6 +28,8 @@
                         CanExecute="CloseCommand_OnCanExecute" Executed="CloseCommand_OnExecuted" />
         <CommandBinding Command="local:MainWindowCommands.Duplicate"
                         CanExecute="DuplicateCommand_OnCanExecute" Executed="DuplicateCommand_OnExecuted" />
+        <CommandBinding Command="local:MainWindowCommands.CheckOff"
+                        CanExecute="CheckOffCommand_OnCanExecute" Executed="CheckOffCommand_OnExecuted" />
         <CommandBinding Command="local:MainWindowCommands.AddTransaction"
                         CanExecute="AddTransactionCommand_OnCanExecute" Executed="AddTransactionCommand_OnExecuted" />
         <CommandBinding Command="local:MainWindowCommands.PreviousYear"
@@ -151,7 +153,7 @@
                         </StackPanel>
                     </UniformGrid>
                     <!-- Content -->
-                    <ListView Margin="16, 0, 16, 16" FontSize="14"
+                    <ListView x:Name="TransactionsListView" Margin="16, 0, 16, 16" FontSize="14"
                               ItemsSource="{Binding FilteredTransactions, Mode=OneWay}"
                               SelectedItem="{Binding SelectedTransaction}"
                               SelectionChanged="TransactionsListView_OnSelectionChanged">
@@ -190,12 +192,23 @@
                                 <GridViewColumn Header="{x:Static p:Resources.Transaction_Checked}" Width="80">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Grid>
+                                            <Grid Background="Transparent">
                                                 <Image Source="../Images/Checked-16x16.png" Width="16" Height="16"
                                                        Visibility="{Binding CheckedVisibility}" />
                                                 <Image Source="../Images/Question-16x16.png" Width="16" Height="16"
                                                        Visibility="{Binding NotCheckedVisibility}"
                                                        RenderOptions.BitmapScalingMode="HighQuality" />
+                                                <Grid.ContextMenu>
+                                                    <ContextMenu FontSize="14" Visibility="{Binding NotCheckedVisibility}" >
+                                                        <MenuItem Header="{x:Static p:Resources.Transaction_CheckOff}"
+                                                                  Command="local:MainWindowCommands.CheckOff"
+                                                                  CommandParameter="{Binding Transaction}">
+                                                            <MenuItem.Icon>
+                                                                <Image Source="../Images/Checked-16x16.png" Width="16" Height="16"/>
+                                                            </MenuItem.Icon>
+                                                        </MenuItem>
+                                                    </ContextMenu>
+                                                </Grid.ContextMenu>
                                             </Grid>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>

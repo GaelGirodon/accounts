@@ -348,6 +348,29 @@ namespace Accounts.Windows
             _vm.UpdateTransactionsView();
         }
 
+        private void CheckOffCommand_OnCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = _vm.Transaction != null;
+        }
+
+        /// <summary>
+        /// Check the selected transaction off.
+        /// </summary>
+        private void CheckOffCommand_OnExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            var transaction = e.Parameter is Transaction p ? p : _vm.Transaction;
+            if (transaction == null || transaction.IsChecked)
+                return;
+            var updatedTransaction = new Transaction(transaction) {IsChecked = true};
+            _vm.Account?.Transactions.Save(updatedTransaction);
+            _vm.UpdateTransactionsView();
+            _vm.SelectedTransaction = _vm.FilteredTransactions
+                .Find(t => t.Transaction.Id == transaction.Id);
+            Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Input, new Action(() =>
+                ((UIElement) TransactionsListView.ItemContainerGenerator
+                    .ContainerFromItem(_vm.SelectedTransaction)).Focus()));
+        }
+
         #endregion
 
         #region Transaction form
@@ -522,6 +545,14 @@ namespace Accounts.Windows
             {
                 new KeyGesture(Key.D, ModifierKeys.Control)
             });
+
+        /// <summary>
+        /// Check the selected transaction off.
+        /// </summary>
+        public static readonly RoutedUICommand CheckOff = new(
+            Resources.Transaction_CheckOff,
+            Resources.Transaction_CheckOff,
+            typeof(MainWindowCommands));
 
         /// <summary>
         /// Initialize the form with default values for a new transaction.

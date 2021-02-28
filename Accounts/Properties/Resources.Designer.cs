@@ -450,6 +450,15 @@ namespace Accounts.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check off.
+        /// </summary>
+        public static string Transaction_CheckOff {
+            get {
+                return ResourceManager.GetString("Transaction_CheckOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date.
         /// </summary>
         public static string Transaction_Date {

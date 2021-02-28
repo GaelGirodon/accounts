@@ -67,13 +67,12 @@ namespace Accounts.Models
         }
 
         /// <summary>
-        /// Initialize a new transaction with a new id and other field values
-        /// taken from the given transaction.
+        /// Initialize a new transaction using the given transaction fields values.
         /// </summary>
         /// <param name="transaction">Other transaction</param>
         public Transaction(Transaction transaction)
         {
-            Id = Guid.NewGuid();
+            Id = transaction.Id;
             Name = transaction.Name;
             Date = transaction.Date;
             Method = transaction.Method;
