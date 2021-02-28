@@ -10,7 +10,7 @@
         mc:Ignorable="d" d:DataContext="{d:DesignInstance vm:MainViewModel}"
         Title="{Binding Title}"
         Height="720" Width="1280" WindowStartupLocation="CenterScreen"
-        Closing="Window_OnClosing" Icon="../Images/Icon.ico">
+        Icon="../Images/Icon.ico" Closing="Window_OnClosing">
     <!-- Resources -->
     <Window.Resources>
         <Style TargetType="ListViewItem">
@@ -127,8 +127,7 @@
                                        Text="{x:Static p:Resources.Transactions_Credit}" />
                             <uc:AmountArrow Amount="1" Margin="8, 0, 0, 0" />
                             <TextBlock FontSize="14" Margin="6, 0, 4, 0" Foreground="#44bd32"
-                                       Text="{Binding MonthCredit, Mode=OneWay}" />
-                            <TextBlock FontSize="14" Foreground="#44bd32" Text="€" />
+                                       Text="{Binding MonthCredit, StringFormat='{}{0:C}', Mode=OneWay}" />
                         </StackPanel>
                         <!-- Debit -->
                         <StackPanel Orientation="Horizontal"
@@ -137,8 +136,7 @@
                                        Text="{x:Static p:Resources.Transactions_Debit}" />
                             <uc:AmountArrow Amount="-1" Margin="8, 0, 0, 0" />
                             <TextBlock FontSize="14" Margin="6, 0, 4, 0" Foreground="#c23616"
-                                       Text="{Binding MonthDebit, Mode=OneWay}" />
-                            <TextBlock FontSize="14" Foreground="#c23616" Text="€" />
+                                       Text="{Binding MonthDebit, StringFormat='{}{0:C}', Mode=OneWay}" />
                         </StackPanel>
                         <!-- Balance -->
                         <StackPanel Orientation="Horizontal" Margin="0, -4"
@@ -146,10 +144,8 @@
                                     ToolTip="{x:Static p:Resources.Transactions_Balance_Description}">
                             <TextBlock FontSize="14" Foreground="White" FontWeight="SemiBold" Margin="8, 4, 0, 4"
                                        Text="{x:Static p:Resources.Transactions_Balance}" />
-                            <TextBlock FontSize="14" Foreground="White" Margin="4, 4, 4, 4"
-                                       Text="{Binding CurrentBalance, Mode=OneWay}" />
-                            <TextBlock FontSize="14" Foreground="White" Margin="0, 4, 8, 4"
-                                       Text="€" />
+                            <TextBlock FontSize="14" Foreground="White" Margin="4, 4, 8, 4"
+                                       Text="{Binding CurrentBalance, StringFormat='{}{0:C}', Mode=OneWay}" />
                         </StackPanel>
                     </UniformGrid>
                     <!-- Content -->
