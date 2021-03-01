@@ -36,6 +36,8 @@ Invoke-WebRequest 'https://raw.githubusercontent.com/GaelGirodon/accounts/master
 - Support many keyboard shortcuts and accelerator keys
 - Available in :fr: French and :uk: English
 
+![Screenshots](./Resources/Screenshots.png)
+
 ## License
 
 **Accounts** is licensed under the GNU General Public License.
