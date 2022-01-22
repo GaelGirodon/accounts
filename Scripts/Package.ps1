@@ -4,6 +4,8 @@
 # Build and package the application.
 #
 
+$ErrorActionPreference = "stop" # Quit if anything goes wrong
+
 $Configuration = "Release"
 $Output = ".\publish"
 $Name = "Accounts"
