@@ -195,12 +195,14 @@
                                                        Visibility="{Binding NotCheckedVisibility}"
                                                        RenderOptions.BitmapScalingMode="HighQuality" />
                                                 <Grid.ContextMenu>
-                                                    <ContextMenu FontSize="14" Visibility="{Binding NotCheckedVisibility}" >
+                                                    <ContextMenu FontSize="14"
+                                                                 Visibility="{Binding NotCheckedVisibility}">
                                                         <MenuItem Header="{x:Static p:Resources.Transaction_CheckOff}"
                                                                   Command="local:MainWindowCommands.CheckOff"
                                                                   CommandParameter="{Binding Transaction}">
                                                             <MenuItem.Icon>
-                                                                <Image Source="../Images/Checked-16x16.png" Width="16" Height="16"/>
+                                                                <Image Source="../Images/Checked-16x16.png"
+                                                                       Width="16" Height="16" />
                                                             </MenuItem.Icon>
                                                         </MenuItem>
                                                     </ContextMenu>

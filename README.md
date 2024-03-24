@@ -7,7 +7,7 @@ A basic personal financial-accounting software.
 
 ## Installation
 
-- Install the [.NET Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/current/runtime/desktop)
+- Install the .NET Desktop Runtime
 - Download the [latest release](https://github.com/GaelGirodon/accounts/releases/latest)
 - Extract the archive
 - Run `Accounts.exe`
